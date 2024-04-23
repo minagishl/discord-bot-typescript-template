@@ -6,14 +6,16 @@
   "author": "templarize",
   "type": "commonjs",
   "scripts": {
-    "build": "rimraf dist && node scripts/build.js",
+    "build": "rimraf dist && tsc",
     "dev": "tsx src/index.ts",
+    "esbuild": "rimraf dist && node scripts/build.js",
     "format": "prettier --write .",
     "format:check": "prettier --check 'src/**/*.ts'",
     "format:write": "prettier --write 'src/**/*.ts'",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
     "register": "tsx src/register.ts",
+    "start": "node dist/index.js",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "typecheck": "tsc --noEmit"
