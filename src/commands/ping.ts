@@ -2,6 +2,7 @@ import {
   SlashCommandBuilder,
   EmbedBuilder,
   type ColorResolvable,
+  type CommandInteraction,
 } from 'discord.js';
 import { COLOR } from '~/config';
 
@@ -10,7 +11,7 @@ export default {
     .setName('ping')
     .setDescription('Returns the response speed to the server.'),
 
-  async execute(interaction: any) {
+  async execute(interaction: CommandInteraction) {
     try {
       let ping: number = interaction.client.ws.ping;
       ping = Math.min(ping > 0 ? ping : 0, 999);
