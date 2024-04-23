@@ -6,7 +6,7 @@
   "author": "templarize",
   "type": "commonjs",
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
     "dev": "tsx src/index.ts",
     "esbuild": "rimraf dist && node scripts/build.js",
     "format": "prettier --write .",
@@ -51,6 +51,7 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "rimraf": "^5.0.5",
+    "tsc-alias": "^1.8.8",
     "tsx": "^4.7.2",
     "typescript": "5.4.5",
     "vite-tsconfig-paths": "^4.3.2",
