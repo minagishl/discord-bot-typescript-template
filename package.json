@@ -1,9 +1,9 @@
 {
-  "name": "templarize",
+  "name": "discord-bot-typescript-template",
   "version": "0.1.0",
-  "description": "A package to quickly build from template files",
+  "description": "This is a Discord Bot template created in TypeScript, the key is that it is easy to manage!",
   "license": "MIT",
-  "author": "templarize",
+  "author": "discord-bot-typescript-template",
   "type": "commonjs",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",

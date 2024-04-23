@@ -4,5 +4,4 @@ yarn-error.log
 
 dist/
 .DS_Store
-.templarize
 .env
