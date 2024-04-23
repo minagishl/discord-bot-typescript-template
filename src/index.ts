@@ -4,6 +4,7 @@ import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import dotenv from 'dotenv';
 import path from 'node:path';
 import getFiles from '~/utils/getFiles';
+import keepAlive from './utils/keepAlive';
 
 // Load the environment variables
 dotenv.config();
@@ -11,6 +12,11 @@ dotenv.config();
 if (process.env.TOKEN == null) {
   console.error(new Error('The environment variable "TOKEN" is not set.'));
   process.exit();
+}
+
+// Keep the bot alive
+if (process.env.KEEP_ALIVE === 'true') {
+  void keepAlive();
 }
 
 const client: Client = new Client({
