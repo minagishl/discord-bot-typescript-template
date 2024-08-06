@@ -1,7 +1,6 @@
 import {
   SlashCommandBuilder,
   EmbedBuilder,
-  type ColorResolvable,
   type ChatInputCommandInteraction,
 } from 'discord.js';
 import { COLOR } from '~/config';
@@ -17,7 +16,7 @@ export default {
       ping = Math.min(ping > 0 ? ping : 0, 999);
 
       const embed = new EmbedBuilder()
-        .setColor(COLOR.PRIMARY as ColorResolvable)
+        .setColor(COLOR.PRIMARY)
         .setTitle('Pong!')
         .setDescription(`WebSocket Ping: ${ping}ms\nAPI Endpoint Ping: ...`);
       const msg = await interaction.reply({
