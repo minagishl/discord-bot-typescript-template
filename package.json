@@ -5,6 +5,9 @@
   "license": "MIT",
   "author": "minagishl",
   "type": "commonjs",
+  "engines": {
+    "npm": "Please use yarn instead of npm"
+  },
   "scripts": {
     "build": "yarn rm && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
     "dev": "tsx src/index.ts",
@@ -53,8 +56,5 @@
     "typescript": "5.5.4",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^2.0.5"
-  },
-  "engines": {
-    "npm": "Please use yarn instead of npm"
   }
 }
