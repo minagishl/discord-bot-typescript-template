@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 // Import the required packages
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import dotenv from 'dotenv';
@@ -62,6 +61,8 @@ async function loadEvents(): Promise<void> {
   // Get all the event files
   const eventFiles = await getFiles(path.join(__dirname, '/events'));
 
+  type EventType = [string, (...args: any[]) => void, { once: boolean }?];
+
   const events = await Promise.all(
     eventFiles.map(async (file) => {
       // Import the event file
@@ -71,14 +72,17 @@ async function loadEvents(): Promise<void> {
           event.name,
           (...args: any[]) => event.execute(...args),
           { once: true },
-        ];
+        ] as EventType;
       } else {
-        return [event.name, (...args: any[]) => event.execute(...args)];
+        return [
+          event.name,
+          (...args: any[]) => event.execute(...args),
+        ] as EventType;
       }
     }),
   );
 
-  events.forEach((event) => {
+  events.forEach((event: EventType) => {
     if (event[2]?.once === true) {
       client.once(event[0], event[1]);
     } else {
