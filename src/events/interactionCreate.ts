@@ -28,7 +28,11 @@ export default {
     }
 
     // Get the command object from the client's commands collection
-    const command = interaction.client.commands.get(interaction.commandName);
+    const command = interaction.client.commands.get(
+      interaction.commandName,
+    ) as {
+      execute: (interaction: Interaction) => Promise<void>;
+    };
 
     // If the command does not exist, log an error and return
     if (command === undefined) {
@@ -37,6 +41,11 @@ export default {
     }
 
     try {
+      if (command === null) {
+        console.error(`The command ${interaction.commandName} is null.`);
+        return;
+      }
+
       // Execute the command and log the result
       await command.execute(interaction);
       console.log(

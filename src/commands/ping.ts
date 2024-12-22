@@ -1,7 +1,7 @@
 import {
-  SlashCommandBuilder,
-  EmbedBuilder,
   type ChatInputCommandInteraction,
+  EmbedBuilder,
+  SlashCommandBuilder,
 } from 'discord.js';
 import { COLOR } from '~/config';
 
@@ -11,9 +11,12 @@ export default {
     .setDescription('Returns the response speed to the server.'),
 
   async execute(interaction: ChatInputCommandInteraction) {
+    const MIN = 0;
+    const MAX = 999;
+
     try {
       let ping: number = interaction.client.ws.ping;
-      ping = Math.min(ping > 0 ? ping : 0, 999);
+      ping = Math.min(ping > MIN ? ping : MIN, MAX);
 
       const embed = new EmbedBuilder()
         .setColor(COLOR.PRIMARY)
@@ -26,14 +29,14 @@ export default {
 
       const apiPing = Math.min(
         msg.createdTimestamp - interaction.createdTimestamp,
-        999,
+        MAX,
       );
 
       embed.setDescription(
         `WebSocket Ping: ${ping}ms\nAPI Endpoint Ping: ${apiPing}ms`,
       );
       await interaction.editReply({ embeds: [embed] });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
     }
   },

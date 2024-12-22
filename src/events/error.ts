@@ -2,7 +2,7 @@ import { Events } from 'discord.js';
 
 export default {
   name: Events.Error,
-  async execute(err: any): Promise<void> {
+  execute(err: unknown): void {
     // Log the error when it occurs.
     console.error(err);
   },

@@ -1,5 +1,6 @@
 import express from 'express';
-const port = process.env.PORT ?? 3000;
+const DEFAULT_PORT = 3000;
+const port = process.env.PORT ?? DEFAULT_PORT;
 
 const app = express();
 const appName = process.env.APP_NAME ?? 'Discord Bot';
@@ -14,6 +15,6 @@ function run(): void {
   });
 }
 
-export default async function keepAlive(): Promise<void> {
+export default function keepAlive(): void {
   run();
 }

@@ -1,7 +1,7 @@
+import path from 'node:path';
 // Import the required packages
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import dotenv from 'dotenv';
-import path from 'node:path';
 import getFiles from '~/utils/getFiles';
 import keepAlive from './utils/keepAlive';
 

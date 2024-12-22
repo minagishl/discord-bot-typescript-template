@@ -1,4 +1,4 @@
-import { type ColorResolvable } from 'discord.js';
+import type { ColorResolvable } from 'discord.js';
 
 type Color = Record<string, ColorResolvable>;
 
