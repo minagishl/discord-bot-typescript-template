@@ -5,8 +5,7 @@ This repository provides a template for creating a Discord bot using TypeScript.
 ## Features
 
 - **TypeScript**: Strongly typed language for building robust applications.
-- **ESLint**: Linting tool for identifying and fixing problems in the code.
-- **Prettier**: Code formatter to ensure a consistent style.
+- **Biome**: Code formatter that works at high speed
 - **Vitest**: Testing framework for ensuring code quality.
 - **Docker**: Containerization for easy deployment.
 
