@@ -22,12 +22,10 @@ export default async function getFiles(
   try {
     const files = await fs.readdir(dirPath, { withFileTypes: true });
     await Promise.all(
-      files.map(async (file) => {
-        await processFile(file, dirPath, result);
-      }),
+      files.map((file) => processFile(file, dirPath, result))
     );
     return result;
-  } catch (err: unknown) {
+  } catch (err) {
     console.error(err);
     return [];
   }
