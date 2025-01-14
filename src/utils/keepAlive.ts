@@ -12,6 +12,8 @@ app.get('/', (_req, res) => {
 function run(): void {
   app.listen(port, () => {
     console.log(`Server is running on port ${port}.`);
+  }).on('error', (err) => {
+    console.error('Server error:', err);
   });
 }
 
