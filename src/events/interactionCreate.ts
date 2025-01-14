@@ -59,7 +59,7 @@ export default {
 
     // Update the user's rate limit and delete it after 1 second
     rateLimitMap.set(interaction.user.id, (userRateLimit ?? 0) + 1);
-    setInterval(() => {
+    setTimeout(() => {
       rateLimitMap.delete(interaction.user.id);
     }, 1000);
   },
